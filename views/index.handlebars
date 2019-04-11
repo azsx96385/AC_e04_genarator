@@ -1,30 +1,31 @@
 <div class="container">
-    <div class="row">
-        <h1>你想對誰說幹話?</h1>
-        <div class="col-sm-12">
-            <form action="/genarate"></form>
-            <div class=" col-sm-4">
+    <h1 class="title">你想對誰說幹話?</h1>
+    <form action="/generate" method="post">
+        <div class="row check_head">
+
+            <div class="col-sm-4 click_item">
                 <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5668/angry-developer.jpg"
-                    alt="工程師" sizes="" srcset="">
-                <input type="checkbox" name="engineer">
+                    alt="工程師" sizes="100" srcset="">
+                <input type="radio" name='target' {{#if eng}} checked {{/if}} value="engineer">
             </div>
 
-            <div class=" col-sm-4">
+            <div class="col-sm-4 click_item">
                 <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5667/angry-designer.jpg"
                     alt="設計師" sizes="" srcset="">
-                <input type="checkbox" name="designer">
+                <input type="radio" name='target' {{#if des}} checked {{/if}}value="designer">
             </div>
 
-            <div class=" col-sm-4">
+            <div class="col-sm-4 click_item">
                 <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5669/angry-founder.jpg"
                     alt="創業家" sizes="" srcset="">
-                <input type="checkbox" name="entrepreneur">
+                <input type="radio" name='target' {{#if ent}} checked {{/if}} value="entrepreneur">
             </div>
-            <button type="submit">產生幹話</button>
-            </form>
-            <input type="textarea">
-
-
         </div>
-    </div>
+        <div class="row check_buttom justify-content-between">
+            <div class="col-sm-4 result_item"><button class="btn btn-primary" type="submit">產生幹話</button></div>
+            <div class="col-sm-8 result_item"><textarea>{{#if e04Sentence}}{{e04Sentence}}{{/if}}</textarea></div>
+        </div>
+    </form>
 </div>
+
+{{#if request.symbols}} checked {{/if}}
